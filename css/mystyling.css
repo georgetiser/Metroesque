@@ -1,0 +1,135 @@
+
+html, body, p, div, a, img {
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+.squareblock {
+	width: 100vw;
+	background-image: url("../images/meh.jpg");
+}
+.squarespace {
+	display: block;
+	width: 96vw;
+	cursor: default;
+	margin: 0 auto;
+	background-image:
+		linear-gradient(to right, black, black 2.2vw, transparent 2.2vw, transparent),
+		linear-gradient(to bottom, black, black 2.2vw, transparent 2.2vw, transparent);
+	background-size: 32vw 32vw, 32vw 32vw;
+	background-repeat: repeat-xy, repeat-xy;
+	// max-height: 160vw;
+	padding: 1vw;
+	overflow: hidden;
+}
+.square, .minisquare {
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 0;
+	text-decoration: none;
+	color: RGBa(0,0,170,1);
+	background-color: RGBa(204,204,204,1);
+	opacity: 1;
+	border: 1vw RGBa(0, 0, 0, 1) solid;
+	overflow: hidden;
+	border: 1vw solid red !important;
+	padding: -1vw; /* useful so that we can have content overflow */
+}
+.minisquare {
+	display: inline-block;
+	width: 33%;
+	height: 33%;
+	border: 1% solid black;
+	padding: -1%;
+}
+@media (min-width: 10px) and (max-width:499px) and (min-height: 10px) {
+	.squarespace { background-size: 32vw 32vw, 32vw 32vw; }
+	.square { width: 30vw; height: 30vw; }
+	div.squarelabel { font-size: 5vw; }
+	.square:nth-child(3n-2) {
+		border-top: 1vw solid blue !important;
+		border-bottom: 1vw solid blue !important;
+	}
+}
+@media (min-width: 500px) {
+	.squarespace { background-size: 24vw 24vw, 24vw 24vw; }
+	.square { width: 22vw; height: 22vw; }
+	div.squarelabel { font-size: 4vw; }
+	.square:nth-child(4n-3) {
+		border-left: 1vw solid transparent !important;
+		border-top: 1vw solid yellow !important;
+		border-bottom: 1vw solid yellow !important;
+		width: 20vw;
+		margin-left: 2vw !important;
+	}
+}
+
+/*
+**		3: 98vw = 3*30vw + 4*2vw (makes sense as a smallest number of columns)
+**		4: 98vw = 4*22vw + 5*2vw
+**		5: 98vw = 5*17.2vw + 6*2vw (skipped, 97vw)
+**		6: 98vw = 6*14vw + 7*2vw
+**		7: 100% = 7*12vw + 8*2vw (skipped, 93vw)
+**		8: 98vw = 8*10vw + 9*2vw
+**		9: 98vw ~ 9*8.6vw + 10*2vw (skipped, 92vw)
+**		10:97vw = 10*7.6vw + 11*2vw (skipped)
+*/
+
+div.squarelabel {
+	font-family: 'Oswald', 'Boogaloo', sans-serif;
+	text-align: center;
+	position: relative; top: 50%; transform:translateY(-50%); // vertical-center
+	//white-space: nowrap;
+}
+
+/*
+div.squarelabel h1, p:first-of-type {
+	font-size: 0.75em;
+	line-height: 1.5em;
+}
+div.squarelabel h1 ~ p:first-of-type {
+	font-size: 0.5em;
+	line-height: 1.5em;
+}
+div.squarelabel p:nth-of-type(2n+2) {
+	font-size: 0.75em;
+	color: #000;
+}
+*/
+
+a.square.autocolor:nth-child(3n-2) {
+	background: #FF0000;
+}
+a.square.autocolor:nth-child(3n-1) {
+	background: #00AA00;
+}
+a.square.autocolor:nth-child(3n) {
+	background: #0000CC;
+}
+a.square.bg-red1, a.square.hv-red1:hover {
+	background: #FF0000 !important;
+}
+a.square.bg-red2, a.square.hv-red2:hover {
+	background: #CC0000 !important;
+}
+a.square.bg-blue1, a.square.hv-blue2:hover {
+	color: #FFF !important;
+	background: #0000FF !important;
+}
+a.square.bg-blue2, a.square.hv-blue1:hover  {
+	color: #FFF !important;
+	background: #000088 !important;
+}
+.square.inactive {
+	background: RGBa(0, 0, 0, 1);
+	color: yellow;
+	cursor: default;
+	opacity: 0.25;
+}
+a.square.inactive:hover {
+	background: #444;
+	color: yellow;
+	cursor: default;
+	opacity: 0.5;
+}
